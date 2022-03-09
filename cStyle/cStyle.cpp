@@ -117,6 +117,11 @@ void printArray(char** sentence) {
 		letter = 0;
 		word++;
 	}
+	if (word == 0)
+	{
+		cout << "The same words were not found";
+	}
+
 }
 
 bool equal(char* first, char* second)

@@ -89,4 +89,8 @@ void printArray(string* sentence)
 		cout << sentence[word] << endl; //Вывод слова на экран
 		word++;
 	}
+	if (word == 0)
+	{
+		cout << "The same words were not found";
+	}
 }
