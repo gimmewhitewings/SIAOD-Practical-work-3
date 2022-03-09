@@ -7,7 +7,7 @@ using namespace std;
 
 char** wordsList(char* str); //Преобразование строки в набор уникальных слов без повторений
 char** sameWords(char** first, char** second); //Нахождение в двух массивах слов совпадений
-void printArray(char** sentence); //Вывож массива слов на экран
+void printArray(char** sentence); //Вывод массива слов на экран
 bool equal(char* first, char* second); //Проверка на равенство двух слов
 
 
