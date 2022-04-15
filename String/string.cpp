@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <locale>
 
 using namespace std;
 
@@ -10,6 +11,7 @@ void printArray(string* sentence); //Вывод массива слов на экран
 
 void main() 
 {
+	setlocale(LC_ALL, "ru");
 	string first, second;
 	cout << "Enter the first:" << endl;
 	getline(cin, first); //Ввод первого предложения
@@ -27,7 +29,7 @@ string* wordsList(string str)
 {
 	string *sentence = new string[100]; //Создаем новый массив строк
 	int i = 0, word = 0;
-	while (str[i] != '\0') //Чтение до конца строки
+	for (size_t i = 0; i < str.length(); i++)
 	{
 		while (str[i] != '\0' && (str[i] == ' ' || str[i] == ',' || str[i] == '.' || str[i] == '?'))  //Пропуск разделителей
 		{
@@ -38,7 +40,7 @@ string* wordsList(string str)
 			sentence[word] += str[i]; //Добавляем бо букве
 			i++;
 		}
-		word++; //Идём к след. 
+		word++; //Идём к след.
 	}
 	int end = word; //Запоминаем значение конца
 	for (size_t m = 0; m < end; m++) //Проход по всем словам
@@ -86,7 +88,11 @@ void printArray(string* sentence)
 	int word = 0;
 	while (!sentence[word].empty()) //Пока не встретилась пустая строка
 	{
-		cout << sentence[word] << endl; //Вывод слова на экран
+		cout << sentence[word]; //Вывод слова на экран
+		if (word != 0)
+		{
+			cout << endl;
+		}
 		word++;
 	}
 	if (word == 0)
